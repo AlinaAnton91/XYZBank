@@ -1,29 +1,17 @@
 package teme;
 
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import sharedData.SharedData;
 
-import java.time.Duration;
 import java.util.List;
 
-public class XYZBankChatGPT {
-
-    WebDriver driver;
+public class XYZBankChatGPT extends SharedData {
 
     @Test
     public void metodaTest() {
-        //Deschidem un browser
-        driver = new ChromeDriver();
-        //Accesam un URL
-        driver.get("https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login");
-
-        driver.manage().window().maximize();
-
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         WebElement bankManagerLoginElement = driver.findElement(By.cssSelector("button[ng-click='manager()']"));
         bankManagerLoginElement.click();
 
@@ -68,6 +56,8 @@ public class XYZBankChatGPT {
         String accountID = alertSplit[1];
         confirmationAlert.accept();
 
+
+
         WebElement customersElement = driver.findElement(By.cssSelector("button[ng-click='showCust()']"));
         customersElement.click();
 
@@ -89,7 +79,7 @@ public class XYZBankChatGPT {
         Assert.assertEquals(tableResultsList.size(), 0);
 
 
-//
+
 //        driver.quit();
 
         // Luăm toate rândurile din tabel

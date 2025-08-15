@@ -1,25 +1,14 @@
 package teme;
 
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import sharedData.SharedData;
 
-import java.time.Duration;
-
-public class XYZBank {
-
-    WebDriver driver;
+public class XYZBank extends SharedData {
 
     @Test
     public void metodaTest() {
-        //Deschidem un browser
-        driver = new ChromeDriver();
-
-        //Accesam un URL
-        driver.get("https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login");
-
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         WebElement bankManagerLoginElement = driver.findElement(By.cssSelector("button[ng-click='manager()']"));
         bankManagerLoginElement.click();
 
